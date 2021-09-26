@@ -13,19 +13,28 @@ const Header = () => {
           />
           <h1>WooTube</h1>
         </Link>
-        <img
-          src="https://user-images.githubusercontent.com/59258239/134790952-5e0d4cfc-593f-420f-bc6b-1ae113165420.png"
-          alt="우테코 로고입니다."
-          width="190px"
-          height="65px"
-        />
+        <a href="https://techcourse.woowahan.com/" target="_blank" rel="noopener noreferrer">
+          <img
+            src="https://user-images.githubusercontent.com/59258239/134790952-5e0d4cfc-593f-420f-bc6b-1ae113165420.png"
+            alt="우테코 로고입니다."
+            width="190px"
+            height="65px"
+          />
+        </a>
       </header>
     </HeaderWrapper>
   );
 };
 
 const HeaderWrapper = styled.div`
+  background-color: #fafafa;
   border-bottom: 1px solid #d1d1d1;
+  position: sticky;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 8vh;
 
   > header {
     display: flex;
@@ -37,12 +46,6 @@ const HeaderWrapper = styled.div`
     > a {
       display: flex;
       align-items: center;
-
-      :link,
-      :visited {
-        color: #000000;
-        text-decoration: none;
-      }
 
       h1 {
         font-weight: 600;

@@ -41,7 +41,7 @@ const HeaderWrapper = styled.div`
     justify-content: space-between;
     align-items: center;
 
-    margin: 0 5rem;
+    margin: 0 4rem;
 
     > a {
       display: flex;

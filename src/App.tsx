@@ -5,6 +5,7 @@ import Nav from './components/Nav';
 import Header from './components/Header';
 import BranPage from './pages/BranPage';
 import GoniPage from './pages/GoniPage';
+import HomePage from './pages/HomePage';
 
 const App = () => {
   return (
@@ -13,11 +14,14 @@ const App = () => {
         <Header></Header>
         <Wrapper>
           <Nav></Nav>
-          <Switch>
-            <Route exact path="/c/goni" component={GoniPage} />
-            <Route exact path="/c/bran" component={BranPage} />
-            <Redirect to="/" />
-          </Switch>
+          <Main>
+            <Switch>
+              <Route exact path="/" component={HomePage} />
+              <Route exact path="/c/goni" component={GoniPage} />
+              <Route exact path="/c/bran" component={BranPage} />
+              <Redirect to="/" />
+            </Switch>
+          </Main>
         </Wrapper>
         {/* <Footer /> */}
       </HashRouter>
@@ -27,7 +31,12 @@ const App = () => {
 
 const Wrapper = styled.div`
   display: flex;
-  margin: 0 4rem;
+`;
+
+const Main = styled.main`
+  width: 100%;
+  border: 1px solid #c7c7c7;
+  border-top: none;
 `;
 
 const Footer = styled.footer`

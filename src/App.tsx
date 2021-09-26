@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { HashRouter, Switch, Route, Redirect } from 'react-router-dom';
 import styled from '@emotion/styled';
 
@@ -8,8 +9,28 @@ import GoniPage from './pages/GoniPage';
 import HomePage from './pages/HomePage';
 
 const App = () => {
-  return (
-    <>
+  const [isBrowserSmall, setIsBrowserSmall] = useState(false);
+
+  useEffect(() => {
+    const resizingEvent = () => {
+      if (window.innerWidth < 1280) {
+        setIsBrowserSmall(true);
+      } else {
+        setIsBrowserSmall(false);
+      }
+    };
+
+    window.addEventListener('resize', resizingEvent);
+
+    return () => {
+      window.removeEventListener('resize', resizingEvent);
+    };
+  }, [isBrowserSmall]);
+
+  return isBrowserSmall ? (
+    <AnnounceContainer>반응형은 아직 준비중입니다. 큰 화면으로 봐주세요!</AnnounceContainer>
+  ) : (
+    <div>
       <HashRouter>
         <Header></Header>
         <Wrapper>
@@ -23,11 +44,19 @@ const App = () => {
             </Switch>
           </Main>
         </Wrapper>
-        {/* <Footer /> */}
       </HashRouter>
-    </>
+    </div>
   );
 };
+
+const AnnounceContainer = styled.div`
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 
 const Wrapper = styled.div`
   display: flex;
@@ -37,13 +66,6 @@ const Main = styled.main`
   width: 100%;
   border: 1px solid #c7c7c7;
   border-top: none;
-`;
-
-const Footer = styled.footer`
-  border-top: 1px solid #d1d1d1;
-  width: 100%;
-  height: 4rem;
-  background-color: #fafafa;
 `;
 
 export default App;

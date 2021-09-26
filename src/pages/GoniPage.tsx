@@ -1,4 +1,5 @@
 import Cover from '../components/Cover';
+import Subscribe from '../components/Subscribe';
 
 const GoniPage = () => {
   return (
@@ -16,6 +17,7 @@ const GoniPage = () => {
           눈구나 경험할 수 있습니다.
         </h3>
       </Cover>
+      <Subscribe title="토스코어" />
     </>
   );
 };

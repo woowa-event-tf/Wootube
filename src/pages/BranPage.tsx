@@ -1,4 +1,5 @@
 import Cover from '../components/Cover';
+import Subscribe from '../components/Subscribe';
 
 const BranPage = () => {
   return (
@@ -12,6 +13,7 @@ const BranPage = () => {
           중심에서 사용자 중심으로 <br /> 완벽하게 옮겨오는 것입니다.
         </h3>
       </Cover>
+      <Subscribe title="토스뱅크" />
     </>
   );
 };

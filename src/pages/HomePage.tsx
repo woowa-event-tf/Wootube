@@ -15,7 +15,7 @@ const HomePage = () => {
     <Section>
       <ul>
         {blogList.map(({ name, imgUrl, blogUrl, nickName, birth }: BlogItem) => (
-          <li>
+          <li key={name}>
             <ThumbnailItem
               name={name}
               imgUrl={imgUrl}

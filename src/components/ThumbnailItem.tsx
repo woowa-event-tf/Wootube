@@ -2,10 +2,13 @@ import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { BlogItem } from 'src/pages/HomePage';
 
-const ThumbnailItem = ({ name, imgUrl, blogUrl, nickName }: BlogItem) => {
+const ThumbnailItem = ({ name, imgUrl, blogUrl, nickName, birth }: BlogItem) => {
   return (
     <Container href={blogUrl} target="_blank" rel="noopener noreferrer">
-      <Thumbnail imgUrl={imgUrl} />
+      <div>
+        <Thumbnail imgUrl={imgUrl} />
+        {birth && <span>{birth}</span>}
+      </div>
       <h3>
         {nickName}님의 블로그{!blogUrl && '가 없습니다.'}
       </h3>
@@ -26,17 +29,37 @@ const Container = styled.a`
   width: 260px;
   height: 200px;
 
+  > div:nth-child(1) {
+    width: 250px;
+    height: 160px;
+    overflow: hidden;
+
+    position: relative;
+
+    > span {
+      background-color: #1a1a1a;
+      color: #ffffff;
+      line-height: 1.5;
+      font-size: 0.7rem;
+
+      position: absolute;
+      right: 2%;
+      bottom: 4%;
+      padding: 0 0.2rem;
+    }
+  }
+
   > h3 {
-    width: 240px;
-    margin: 0.5rem 0;
+    width: 250px;
+    margin: 0.5rem 0 0.2rem;
     padding: 0 0.5rem;
     text-align: left;
     font-size: 0.9rem;
     font-weight: 600;
   }
 
-  > div {
-    width: 240px;
+  > div:nth-last-child(1) {
+    width: 250px;
     display: flex;
     padding: 0 0.5rem;
     justify-content: space-between;
@@ -47,8 +70,9 @@ const Container = styled.a`
 `;
 
 const Thumbnail = styled.div<{ imgUrl: string }>`
-  width: 240px;
-  height: 180px;
+  width: 100%;
+  height: 100%;
+
   border: 1px solid #cccccc;
 
   ${({ imgUrl }) =>

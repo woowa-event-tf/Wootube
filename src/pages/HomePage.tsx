@@ -8,14 +8,21 @@ export interface BlogItem {
   imgUrl: string;
   blogUrl: string;
   nickName: string;
+  birth: string;
 }
 const HomePage = () => {
   return (
     <Section>
       <ul>
-        {blogList.map(({ name, imgUrl, blogUrl, nickName }: BlogItem) => (
+        {blogList.map(({ name, imgUrl, blogUrl, nickName, birth }: BlogItem) => (
           <li>
-            <ThumbnailItem name={name} imgUrl={imgUrl} blogUrl={blogUrl} nickName={nickName} />
+            <ThumbnailItem
+              name={name}
+              imgUrl={imgUrl}
+              blogUrl={blogUrl}
+              nickName={nickName}
+              birth={birth}
+            />
           </li>
         ))}
       </ul>

@@ -1,7 +1,10 @@
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
 
-import { gitHubList, projects, subscribeList } from '../info';
+import { projects } from '../data/projectList';
+import { subscribeList } from '../data/subscribeList';
+import { gitHubList } from '../data/githubList';
+
 import NavItem from './NavItem';
 
 export interface Item {
@@ -15,7 +18,7 @@ const Nav = () => {
     <AsideContainer>
       <ul>
         {gitHubList.map(({ name, url, imageUrl }: Item) => (
-          <li>
+          <li key={name}>
             <a href={url} target="_blank" rel="noopener noreferrer">
               <NavItem name={name} url={url} imageUrl={imageUrl} />
             </a>
@@ -26,7 +29,7 @@ const Nav = () => {
       <ul>
         <span>구독</span>
         {subscribeList.map(({ name, url, imageUrl }: Item) => (
-          <li>
+          <li key={name}>
             <Link to={url}>
               <NavItem name={name} url={url} imageUrl={imageUrl} />
             </Link>
@@ -37,40 +40,27 @@ const Nav = () => {
       <ul>
         <span>우리들의 프로젝트</span>
         {projects.map(({ name, url, imageUrl }: Item) => (
-          <li>
+          <li key={name}>
             <a href={url} target="_blank" rel="noopener noreferrer">
               <NavItem name={name} url={url} imageUrl={imageUrl} />
             </a>
           </li>
         ))}
       </ul>
-
-      {/* <ul>
-        <span>우리들의 프로젝트</span>
-        {projects.map(({ name, url, imageUrl }: Item) => (
-          <li>
-            <a href={url} target="_blank">
-              <NavItem name={name} url={url} imageUrl={imageUrl} />
-            </a>
-          </li>
-        ))}
-      </ul> */}
     </AsideContainer>
   );
 };
 
 const AsideContainer = styled.nav`
-  width: 13rem;
+  width: 18rem;
   height: 92vh;
   overflow: auto;
 
   ul {
     width: 100%;
-    /* max-height: 16rem; */
-    /* overflow: hidden; */
-    padding: 0.8rem 1rem;
-    border: 1px solid #c7c7c7;
-    border-top: none;
+    padding: 0.8rem 4rem;
+    padding-right: 0;
+    border-bottom: 1px solid #c7c7c7;
 
     > span {
       display: inline-block;
@@ -86,6 +76,10 @@ const AsideContainer = styled.nav`
 
       span {
         margin-left: 0.5rem;
+      }
+
+      :hover {
+        text-decoration: underline;
       }
     }
   }

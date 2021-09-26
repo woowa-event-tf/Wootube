@@ -20,7 +20,7 @@ const GlobalStyle = () => (
         min-height: 100%;
         height: 100%;
         font-family: Helvetica, Arial, sans-serif;
-        background-color: #efefef;
+        background-color: #fafafa;
       }
 
       li {

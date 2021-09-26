@@ -29,7 +29,7 @@ const Container = styled.a`
   width: 260px;
   height: 200px;
 
-  > div:nth-child(1) {
+  > div:nth-of-type(1) {
     width: 250px;
     height: 160px;
     overflow: hidden;
@@ -58,7 +58,7 @@ const Container = styled.a`
     font-weight: 600;
   }
 
-  > div:nth-last-child(1) {
+  > div:nth-last-of-type(1) {
     width: 250px;
     display: flex;
     padding: 0 0.5rem;

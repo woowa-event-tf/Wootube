@@ -1,12 +1,12 @@
-import { useState, useEffect } from 'react';
-import { HashRouter, Switch, Route, Redirect } from 'react-router-dom';
-import styled from '@emotion/styled';
+import { HashRouter, Redirect, Route, Switch } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
-import Nav from './components/Nav';
-import Header from './components/Header';
 import BranPage from './pages/BranPage';
 import GoniPage from './pages/GoniPage';
+import Header from './components/Header';
 import HomePage from './pages/HomePage';
+import Nav from './components/Nav';
+import styled from '@emotion/styled';
 
 const App = () => {
   const [isBrowserSmall, setIsBrowserSmall] = useState(window.innerWidth < 1280);
@@ -27,9 +27,7 @@ const App = () => {
     };
   }, [isBrowserSmall]);
 
-  return isBrowserSmall ? (
-    <AnnounceContainer>반응형은 아직 준비중입니다. 큰 화면으로 봐주세요!</AnnounceContainer>
-  ) : (
+  return (
     <div>
       <HashRouter>
         <Header></Header>

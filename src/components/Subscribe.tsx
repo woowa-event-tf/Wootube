@@ -1,10 +1,14 @@
 import styled from '@emotion/styled';
+import { useModal } from '../contexts/ModalProvider';
 
 interface YoutubeTitle {
   title: string;
+  name: string;
 }
 
-const Subscribe = ({ title }: YoutubeTitle) => {
+const Subscribe = ({ title, name }: YoutubeTitle) => {
+  const { openModal } = useModal();
+
   return (
     <SubscribeSection>
       <LogoWrapper>
@@ -17,7 +21,9 @@ const Subscribe = ({ title }: YoutubeTitle) => {
         <h3>{title}</h3>
       </LogoWrapper>
 
-      <Subscription>구독</Subscription>
+      <Subscription>
+        <button onClick={() => openModal(name)}>구독</button>
+      </Subscription>
     </SubscribeSection>
   );
 };
@@ -53,11 +59,13 @@ const ImageWrapper = styled.div`
   }
 `;
 
-const Subscription = styled.button`
-  width: 80px;
-  height: 35px;
-  background-color: #e62117;
-  color: white;
+const Subscription = styled.div`
+  button {
+    width: 80px;
+    height: 35px;
+    background-color: #e62117;
+    color: white;
+  }
 `;
 
 export default Subscribe;

@@ -64,6 +64,9 @@ const Main = styled.main`
   width: 100%;
   border: 1px solid #c7c7c7;
   border-top: none;
+
+  height: 92vh;
+  overflow: auto;
 `;
 
 export default App;

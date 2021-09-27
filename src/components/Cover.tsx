@@ -25,7 +25,7 @@ const CoverSection = styled.section`
   justify-content: space-between;
   width: 100%;
   height: 200px;
-  background-color: #1142f1;
+  background-color: #1142f1ee;
   color: white;
   padding: 0 40px;
 `;

@@ -1,5 +1,7 @@
+import Board from '../components/Board';
 import Cover from '../components/Cover';
 import Subscribe from '../components/Subscribe';
+import { letterToGoni } from '../data/letterToGoni';
 
 const BranPage = () => {
   return (
@@ -14,6 +16,7 @@ const BranPage = () => {
         </h3>
       </Cover>
       <Subscribe title="토스뱅크" />
+      <Board letters={letterToGoni} />
     </>
   );
 };

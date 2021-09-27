@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 
 interface YoutubeTitle {
-  title: String;
+  title: string;
 }
 
 const Subscribe = ({ title }: YoutubeTitle) => {

@@ -1,5 +1,7 @@
+import Board from '../components/Board';
 import Cover from '../components/Cover';
 import Subscribe from '../components/Subscribe';
+import { letterToGoni } from '../data/letterToGoni';
 
 const GoniPage = () => {
   return (
@@ -18,6 +20,7 @@ const GoniPage = () => {
         </h3>
       </Cover>
       <Subscribe title="토스코어" />
+      <Board letters={letterToGoni} />
     </>
   );
 };

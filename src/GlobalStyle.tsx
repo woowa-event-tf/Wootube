@@ -37,6 +37,10 @@ const GlobalStyle = () => (
           color: #000000;
         }
       }
+
+      button {
+        cursor: pointer;
+      }
     `}
   />
 );

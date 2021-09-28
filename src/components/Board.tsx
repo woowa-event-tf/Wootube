@@ -29,10 +29,10 @@ const Board = ({ letters, imgUrl }: Prop) => {
         <button onClick={onClickBoardNav}>동영상</button>
         <button onClick={onClickBoardNav}>커뮤니티</button>
       </ContentHeader>
-      <BoardSection>
+      <BoardList>
         {BoardState === '동영상' &&
           letters.map((letter) => <BoardContent letter={letter} key={letter.id} imgUrl={imgUrl} />)}
-      </BoardSection>
+      </BoardList>
     </ContentContainer>
   );
 };
@@ -59,13 +59,20 @@ const ContentHeader = styled.div`
   z-index: 1;
 `;
 
-const BoardSection = styled.section`
+const BoardList = styled.ul`
   padding: 2rem 0.5rem 4rem;
 
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-column-gap: 0.1rem;
   grid-row-gap: 1.5rem;
+  justify-items: start;
+
+  @media screen and (min-width: 1100px) and (max-width: 1200px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media screen and (min-width: 1200px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
 `;
 
 export default Board;

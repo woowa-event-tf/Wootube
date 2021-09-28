@@ -34,11 +34,13 @@ const TextWrapper = styled.div`
   max-width: 800px;
   margin-right: 20px;
 
-  h1 {
+  p:first-of-type {
+    font-size: 32px;
+    font-weight: 700;
     margin: 0 0 20px 0;
   }
 
-  h3 {
+  p:last-of-type {
     font-size: 16px;
     font-weight: 500;
   }

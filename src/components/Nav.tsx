@@ -52,7 +52,7 @@ const Nav = () => {
 };
 
 const AsideContainer = styled.nav`
-  width: 14rem;
+  min-width: 12rem;
   height: 92vh;
   overflow: auto;
 

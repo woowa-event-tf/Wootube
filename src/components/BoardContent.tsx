@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 
 import { Letter } from './Board';
+import Thumbnail from './Thumbnail';
 
 interface Prop {
   letter: Letter;
@@ -14,7 +15,7 @@ const BoardContent = ({ letter, imgUrl }: Prop) => {
     <>
       <VideoWrapper>
         <div>
-          <Thumbnail imgUrl={imgUrl} />
+          <Thumbnail backgroundImageUrl={imgUrl} width={280} height={160} content={title} />
           <span>09:27</span>
         </div>
         <h3>{title}</h3>
@@ -37,10 +38,6 @@ const VideoWrapper = styled.div`
   height: 200px;
 
   > div:nth-of-type(1) {
-    width: 280px;
-    height: 160px;
-    overflow: hidden;
-
     position: relative;
 
     > span {
@@ -76,17 +73,17 @@ const VideoWrapper = styled.div`
   }
 `;
 
-const Thumbnail = styled.div<{ imgUrl: string }>`
-  width: 100%;
-  height: 100%;
+// const Thumbnail = styled.div<{ imgUrl: string }>`
+//   width: 100%;
+//   height: 100%;
 
-  border: 1px solid #cccccc;
-  background-color: transparent;
-  background-image: url(${({ imgUrl }) => imgUrl && imgUrl});
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-`;
+//   border: 1px solid #cccccc;
+//   background-color: transparent;
+//   background-image: url(${({ imgUrl }) => imgUrl && imgUrl});
+//   background-repeat: no-repeat;
+//   background-size: cover;
+//   background-position: center;
+// `;
 
 const DescriptionWrapper = styled.div`
   padding: 0 10px;

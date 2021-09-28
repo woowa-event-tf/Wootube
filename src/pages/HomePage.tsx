@@ -34,12 +34,24 @@ const Section = styled.section`
   height: 92vh;
   overflow: auto;
 
-  > ul {
-    padding: 3rem 1rem;
+  @media screen and (min-width: 1100px) and (max-width: 1200px) {
+    > ul {
+      padding: 3rem 0.2rem;
 
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-row-gap: 1.5rem;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-row-gap: 1.5rem;
+    }
+  }
+
+  @media screen and (min-width: 1200px) {
+    > ul {
+      padding: 3rem 0.5rem;
+
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-row-gap: 1.5rem;
+    }
   }
 `;
 

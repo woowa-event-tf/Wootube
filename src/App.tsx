@@ -9,11 +9,11 @@ import GoniPage from './pages/GoniPage';
 import HomePage from './pages/HomePage';
 
 const App = () => {
-  const [isBrowserSmall, setIsBrowserSmall] = useState(window.innerWidth < 1280);
+  const [isBrowserSmall, setIsBrowserSmall] = useState(window.innerWidth < 1099);
 
   useEffect(() => {
     const resizingEvent = () => {
-      if (window.innerWidth < 1280) {
+      if (window.innerWidth < 1099) {
         setIsBrowserSmall(true);
       } else {
         setIsBrowserSmall(false);

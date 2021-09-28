@@ -49,7 +49,6 @@ const TextWrapper = styled.div`
 const ImageWrapper = styled.div`
   width: 80px;
   height: 80px;
-  border-radius: 10px;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -57,6 +56,7 @@ const ImageWrapper = styled.div`
   img {
     width: 100%;
     height: auto;
+    border-radius: 10px;
   }
 `;
 

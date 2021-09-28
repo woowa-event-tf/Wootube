@@ -23,7 +23,7 @@ const Modal = () => {
       <ModalContainer>
         <Header>
           <h2>{name}의 장점 적기</h2>
-          <button onClick={closeModal} aria-label="Close" />
+          <button onClick={closeModal} aria-label="닫기" />
         </Header>
         <Form onSubmit={onWriteContent}>
           <div>

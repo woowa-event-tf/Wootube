@@ -1,13 +1,17 @@
+import { useContext } from 'react';
 import styled from '@emotion/styled';
-import { useModal } from '../contexts/ModalProvider';
+
+import { Target } from '../@types';
+import { ModalContext } from '../contexts/ModalProvider';
 
 interface YoutubeTitle {
   title: string;
-  name: string;
+  name: Target;
+  refetch: () => Promise<void>;
 }
 
-const Subscribe = ({ title, name }: YoutubeTitle) => {
-  const { openModal } = useModal();
+const Subscribe = ({ title, name, refetch }: YoutubeTitle) => {
+  const { openModal } = useContext(ModalContext) ?? {};
 
   return (
     <SubscribeSection>
@@ -22,7 +26,7 @@ const Subscribe = ({ title, name }: YoutubeTitle) => {
       </LogoWrapper>
 
       <Subscription>
-        <button onClick={() => openModal(name)}>구독</button>
+        <button onClick={() => openModal?.(name, refetch)}>구독</button>
       </Subscription>
     </SubscribeSection>
   );

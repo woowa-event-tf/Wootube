@@ -1,38 +1,70 @@
-import { FormEvent } from 'react';
+import { ChangeEventHandler, FormEvent, useState } from 'react';
 import ReactDOM from 'react-dom';
 import styled from '@emotion/styled';
-import { useModal } from '../contexts/ModalProvider';
+import { INPUT_MAX_LENGTH } from '../constants/limits';
+import api from '../api';
+import TARGETS from '../constants/targets';
+import { Target } from 'src/@types';
 
-const Modal = () => {
-  const { closeModal, name } = useModal();
+interface Props {
+ name: Target | null;
+ closeModal: () => void;
+}
 
-  const onWriteContent = (event: FormEvent) => {
+const DEFAULT_NAME = "DEFAULT_NAME";
+const targetName = {
+  [TARGETS.GONI]: "곤이",
+  [TARGETS.BRAN]: "브랜",
+  DEFAULT_NAME: "",
+};
+
+const useInput = (initialValue?: string, maxLength?: number) => {
+  const [value, setValue] = useState(initialValue ?? "");
+
+  const onChange: ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement> = ({ target: { value }}) => {
+    if (value.length <= (maxLength ?? Infinity)) {
+      setValue(value);
+    }
+  }
+
+  return {value, onChange};
+}
+
+const Modal = ({ name, closeModal }: Props) => {
+  const { value: writer, onChange: onWriterChange } = useInput("", INPUT_MAX_LENGTH.LETTER_WRITER);
+  const { value: title, onChange: onTitleChange } = useInput("", INPUT_MAX_LENGTH.LETTER_TITLE);
+
+  const onWriteContent = async (event: FormEvent) => {
     event.preventDefault();
 
-    const target = event.target as typeof event.target & {
-      writer: { value: string };
-      title: { value: string };
-    };
+    if (name) {
+      await api.posts.post({ target: name, author: writer, content: title });
 
-    const writer = target.writer.value;
-    const title = target.title.value;
+      closeModal?.();
+    }
   };
 
   const content = (
     <ModalOuter>
       <ModalContainer>
         <Header>
-          <h2>{name}의 장점 적기</h2>
+          <h2>{targetName[name ?? DEFAULT_NAME]}의 장점 적기</h2>
           <button onClick={closeModal} aria-label="닫기" />
         </Header>
         <Form onSubmit={onWriteContent}>
           <div>
-            <label htmlFor="writer">쓰는 사람</label>
-            <input id="writer" name="writer" />
+            <label htmlFor="writer">
+              쓰는 사람
+              <Indicator>{writer.length} / {INPUT_MAX_LENGTH.LETTER_WRITER}</Indicator>
+            </label>
+            <input id="writer" name="writer" value={writer} onChange={onWriterChange} />
           </div>
           <div>
-            <label htmlFor="title">장점 적기</label>
-            <textarea id="title" />
+            <label htmlFor="title">
+              장점 적기
+              <Indicator>{title.length} / {INPUT_MAX_LENGTH.LETTER_TITLE}</Indicator>
+            </label>
+            <textarea id="title" value={title} onChange={onTitleChange} />
           </div>
           <SubmitContainer>
             <button>확인</button>
@@ -89,6 +121,7 @@ const Form = styled.form`
     label {
       display: inline-block;
       margin-bottom: 5px;
+      position: relative;
     }
 
     input,
@@ -101,6 +134,12 @@ const Form = styled.form`
       resize: none;
     }
   }
+`;
+
+const Indicator = styled.span`
+  position: absolute;
+  right: -5px;
+  transform: translateX(100%);
 `;
 
 const SubmitContainer = styled.div`

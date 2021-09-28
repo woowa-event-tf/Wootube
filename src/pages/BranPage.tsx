@@ -1,9 +1,14 @@
 import Board from '../components/Board';
 import Cover from '../components/Cover';
 import Subscribe from '../components/Subscribe';
-import { letterToBran } from '../data/dummy/letterToBran';
+import IMAGE_URLS from '../constants/imageUrls';
+import TARGETS from '../constants/targets';
+import useLetters from '../hooks/useLetters';
+
 
 const BranPage = () => {
+  const { letters, refetch } = useLetters(TARGETS.BRAN);
+
   return (
     <>
       <Cover>
@@ -15,10 +20,10 @@ const BranPage = () => {
           중심에서 사용자 중심으로 <br /> 완벽하게 옮겨오는 것입니다.
         </p>
       </Cover>
-      <Subscribe title="토스뱅크" name="브랜" />
+      <Subscribe title="토스뱅크" name={TARGETS.BRAN} refetch={refetch} />
       <Board
-        letters={letterToBran}
-        imgUrl="https://user-images.githubusercontent.com/59258239/135033368-afb266bc-cba6-492a-93e2-d59ddde3d0c0.jpeg"
+        letters={letters}
+        imgUrl={IMAGE_URLS.BRAN}
       />
     </>
   );

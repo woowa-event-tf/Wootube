@@ -35,11 +35,10 @@ const Section = styled.section`
   overflow: auto;
 
   > ul {
-    padding: 3rem;
+    padding: 3rem 1rem;
 
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-column-gap: 0.5rem;
     grid-row-gap: 1.5rem;
   }
 `;

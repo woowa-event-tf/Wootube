@@ -3,17 +3,17 @@ import { MouseEvent, useState } from 'react';
 import BoardContent from './BoardContent';
 import styled from '@emotion/styled';
 
-interface Letter {
+export interface Letter {
   title: string;
   from: string;
-  imgSrc: string;
 }
 
 interface Prop {
   letters: Letter[];
+  imgUrl: string;
 }
 
-const Board = ({ letters }: Prop) => {
+const Board = ({ letters, imgUrl }: Prop) => {
   const [BoardState, setBoardState] = useState('동영상');
 
   const onClickBoardNav = (event: MouseEvent) => {
@@ -30,20 +30,13 @@ const Board = ({ letters }: Prop) => {
       </ContentHeader>
       <BoardSection>
         {BoardState === '동영상' &&
-          letters.map((letter, index) => <BoardContent letter={letter} key={index} />)}
+          letters.map((letter, index) => (
+            <BoardContent letter={letter} key={index} imgUrl={imgUrl} />
+          ))}
       </BoardSection>
     </ContentContainer>
   );
 };
-
-const BoardSection = styled.section`
-  display: grid;
-  grid-template-columns: repeat(5, minmax(150px, 1fr));
-  gap: 40px;
-
-  padding: 20px 40px;
-  margin: 0 auto;
-`;
 
 const ContentContainer = styled.div`
   width: 100%;
@@ -59,8 +52,21 @@ const ContentContainer = styled.div`
 
 const ContentHeader = styled.div`
   width: 100%;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #b6b6b6;
+
+  position: sticky;
+  top: 100px;
+  background-color: #fafafa;
+  z-index: 1;
+`;
+
+const BoardSection = styled.section`
+  padding: 2rem 0.5rem 4rem;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: 0.1rem;
+  grid-row-gap: 1.5rem;
 `;
 
 export default Board;
-('');

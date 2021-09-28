@@ -27,7 +27,7 @@ const Header = () => {
 };
 
 const HeaderWrapper = styled.div`
-  background-color: #fafafa;
+  background-color: #f7f7f7;
   border-bottom: 1px solid #d1d1d1;
   position: sticky;
   top: 0;
@@ -36,12 +36,15 @@ const HeaderWrapper = styled.div`
   width: 100%;
   height: 8vh;
 
+  z-index: 1;
+  box-shadow: 0 1px 3px rgba(75, 68, 68, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+
   > header {
     display: flex;
     justify-content: space-between;
     align-items: center;
 
-    margin: 0 4rem;
+    margin: 0 2rem;
 
     > a {
       display: flex;

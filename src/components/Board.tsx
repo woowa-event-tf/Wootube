@@ -4,6 +4,7 @@ import BoardContent from './BoardContent';
 import styled from '@emotion/styled';
 
 export interface Letter {
+  id: string;
   title: string;
   from: string;
 }
@@ -30,8 +31,8 @@ const Board = ({ letters, imgUrl }: Prop) => {
       </ContentHeader>
       <BoardSection>
         {BoardState === '동영상' &&
-          letters.map((letter, index) => (
-            <BoardContent letter={letter} key={index} imgUrl={imgUrl} />
+          letters.map((letter) => (
+            <BoardContent letter={letter} key={letter.id} imgUrl={imgUrl} />
           ))}
       </BoardSection>
     </ContentContainer>

@@ -1,30 +1,44 @@
+import { FormEvent } from 'react';
 import ReactDOM from 'react-dom';
 import styled from '@emotion/styled';
+
 import { useModal } from '../contexts/ModalProvider';
 
 const Modal = () => {
   const { closeModal, name } = useModal();
 
+  const onWriteContent = (event: FormEvent) => {
+    event.preventDefault();
+
+    const target = event.target as typeof event.target & {
+      writer: { value: string };
+      content: { value: string };
+    };
+
+    const writer = target.writer.value;
+    const content = target.content.value;
+  };
+
   const content = (
     <ModalOuter>
       <ModalContainer>
         <Header>
-          {name}의 장점 적기
-          <button onClick={closeModal}></button>
+          <h2>{name}의 장점 적기</h2>
+          <button onClick={closeModal} aria-label="Close" />
         </Header>
-        <Body>
+        <Form onSubmit={onWriteContent}>
           <div>
-            <span>쓰는 사람</span>
-            <input />
+            <label htmlFor="writer">쓰는 사람</label>
+            <input id="writer" name="writer" />
           </div>
           <div>
-            <span>장점 적기</span>
-            <textarea />
+            <label htmlFor="content">장점 적기</label>
+            <textarea id="content" />
           </div>
-        </Body>
-        <SubmitContainer>
-          <button>확인</button>
-        </SubmitContainer>
+          <SubmitContainer>
+            <button>확인</button>
+          </SubmitContainer>
+        </Form>
       </ModalContainer>
     </ModalOuter>
   );
@@ -42,25 +56,30 @@ const ModalOuter = styled.div`
   justify-content: center;
   align-items: center;
   background-color: rgba(0, 0, 0, 0.65);
+
+  z-index: 2;
 `;
 
 const Header = styled.div`
-  font-size: 22px;
-  font-weight: bold;
   border-bottom: 1px solid #b6b6b6;
   padding: 0 20px 20px 20px;
   display: flex;
   justify-content: space-between;
 
+  h1 {
+    font-size: 22px;
+    font-weight: bold;
+  }
+
   button {
     padding: 0 10px;
-    background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Multiplication_Sign.svg/1024px-Multiplication_Sign.svg.png)
+    background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Multiplication_Sign.svg/1024px-Multiplication_Sign.svg.png')
       no-repeat center;
     background-size: 20px;
   }
 `;
 
-const Body = styled.div`
+const Form = styled.form`
   display: flex;
   flex-direction: column;
   padding: 0 20px;
@@ -68,7 +87,7 @@ const Body = styled.div`
   div {
     margin-bottom: 20px;
 
-    span {
+    label {
       display: inline-block;
       margin-bottom: 5px;
     }
@@ -86,28 +105,29 @@ const Body = styled.div`
 `;
 
 const SubmitContainer = styled.div`
-  display: flex;
-  justify-content: right;
+  text-align: right;
   padding: 0 20px;
 
   button {
-    background: black;
+    background: #080808;
     border-radius: 10px;
+    padding: 10px 30px;
+
     color: white;
     font-size: 16px;
-    padding: 10px 30px;
   }
 `;
 
 const ModalContainer = styled.section`
-  width: 600px;
-  height: 380px;
-  border-radius: 20px;
-  border: 1px solid #b6b6b6;
-  padding: 20px 0;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  width: 600px;
+  height: 380px;
+  padding: 20px 0;
+
+  border-radius: 20px;
+  border: 1px solid #b6b6b6;
   background: #fafafa;
 `;
 

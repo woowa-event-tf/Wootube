@@ -18,7 +18,7 @@ const Subscribe = ({ title, name }: YoutubeTitle) => {
             alt="Toss Logo"
           />
         </ImageWrapper>
-        <h3>{title}</h3>
+        <h2>{title}</h2>
       </LogoWrapper>
 
       <Subscription>
@@ -29,6 +29,11 @@ const Subscribe = ({ title, name }: YoutubeTitle) => {
 };
 
 const SubscribeSection = styled.section`
+  position: sticky;
+  top: 0;
+  background-color: #fafafa;
+  z-index: 1;
+
   width: 100%;
   height: 100px;
   display: flex;
@@ -41,7 +46,8 @@ const LogoWrapper = styled.div`
   display: flex;
   align-items: center;
 
-  h3 {
+  h2 {
+    font-size: 18.72px;
     margin-left: 15px;
   }
 `;

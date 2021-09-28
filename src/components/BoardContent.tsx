@@ -13,7 +13,7 @@ const BoardContent = ({ letter, imgUrl }: Prop) => {
 
   return (
     <>
-      <VideoWrapper>
+      <BoardItem>
         <div>
           <Thumbnail backgroundImageUrl={imgUrl} width={280} height={160} content={title} />
           <span>09:27</span>
@@ -23,15 +23,15 @@ const BoardContent = ({ letter, imgUrl }: Prop) => {
           <span>조회수 3천</span>
           <span>{from}</span>
         </div>
-      </VideoWrapper>
+      </BoardItem>
     </>
   );
 };
 
-const VideoWrapper = styled.div`
+const BoardItem = styled.li`
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 
   width: 300px;
@@ -48,14 +48,13 @@ const VideoWrapper = styled.div`
 
       position: absolute;
       right: 2%;
-      bottom: 4%;
+      bottom: 5%;
       padding: 0 0.2rem;
     }
   }
 
   > h3 {
     width: 280px;
-    margin: 0.5rem 0 0.2rem;
     padding: 0 0.5rem;
     text-align: left;
     font-size: 0.9rem;
@@ -70,37 +69,6 @@ const VideoWrapper = styled.div`
     font-size: 0.7rem;
     font-weight: 500;
     color: #666666;
-  }
-`;
-
-// const Thumbnail = styled.div<{ imgUrl: string }>`
-//   width: 100%;
-//   height: 100%;
-
-//   border: 1px solid #cccccc;
-//   background-color: transparent;
-//   background-image: url(${({ imgUrl }) => imgUrl && imgUrl});
-//   background-repeat: no-repeat;
-//   background-size: cover;
-//   background-position: center;
-// `;
-
-const DescriptionWrapper = styled.div`
-  padding: 0 10px;
-
-  h3 {
-    margin-bottom: 7px;
-    font-size: 18px;
-  }
-
-  div {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  span {
-    font-size: 12px;
-    margin-bottom: 7px;
   }
 `;
 

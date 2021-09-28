@@ -27,7 +27,9 @@ const App = () => {
     };
   }, [isBrowserSmall]);
 
-  return (
+  return isBrowserSmall ? (
+    <AnnounceContainer>반응형 제작중 🛠 큰 화면에서 봐주세요 🙇‍♀️</AnnounceContainer>
+  ) : (
     <div>
       <HashRouter>
         <Header></Header>

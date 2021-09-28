@@ -26,11 +26,16 @@ const Container = styled.a`
   justify-content: center;
   align-items: center;
 
-  width: 260px;
+  width: 300px;
   height: 200px;
 
+  :hover {
+    transform: scale(1.05);
+    transition: all 0.2s;
+  }
+
   > div:nth-of-type(1) {
-    width: 250px;
+    width: 280px;
     height: 160px;
     overflow: hidden;
 
@@ -50,7 +55,7 @@ const Container = styled.a`
   }
 
   > h3 {
-    width: 250px;
+    width: 280px;
     margin: 0.5rem 0 0.2rem;
     padding: 0 0.5rem;
     text-align: left;
@@ -59,7 +64,7 @@ const Container = styled.a`
   }
 
   > div:nth-last-of-type(1) {
-    width: 250px;
+    width: 280px;
     display: flex;
     padding: 0 0.5rem;
     justify-content: space-between;

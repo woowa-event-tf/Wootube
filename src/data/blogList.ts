@@ -74,7 +74,7 @@ export const blogList = [
     blogUrl: 'https://zereight.tistory.com/',
     imgUrl: 'https://avatars.githubusercontent.com/u/42544600?v=4',
     name: '도비',
-    birth: '',
+    birth: '02:14',
   },
   {
     nickName: '전환오',
@@ -88,7 +88,7 @@ export const blogList = [
     blogUrl: '',
     imgUrl: 'https://avatars.githubusercontent.com/u/75007375?v=4',
     name: '심바',
-    birth: '',
+    birth: '10:17',
   },
   {
     nickName: '임광열',
@@ -123,7 +123,7 @@ export const blogList = [
     blogUrl: 'https://velog.io/@bigsaigon333',
     imgUrl: 'https://avatars.githubusercontent.com/u/31029000?v=4',
     name: '동동',
-    birth: '',
+    birth: '08:28',
   },
   {
     nickName: '권세진',
@@ -151,7 +151,7 @@ export const blogList = [
     blogUrl: 'https://sunnyk.tistory.com/',
     imgUrl: 'https://avatars.githubusercontent.com/u/45230497?v=4',
     name: '썬',
-    birth: '',
+    birth: '02:28',
   },
   {
     nickName: '오태은',

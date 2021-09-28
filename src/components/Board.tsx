@@ -31,9 +31,7 @@ const Board = ({ letters, imgUrl }: Prop) => {
       </ContentHeader>
       <BoardSection>
         {BoardState === '동영상' &&
-          letters.map((letter) => (
-            <BoardContent letter={letter} key={letter.id} imgUrl={imgUrl} />
-          ))}
+          letters.map((letter) => <BoardContent letter={letter} key={letter.id} imgUrl={imgUrl} />)}
       </BoardSection>
     </ContentContainer>
   );

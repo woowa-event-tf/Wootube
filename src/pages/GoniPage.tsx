@@ -24,10 +24,7 @@ const GoniPage = () => {
         </p>
       </Cover>
       <Subscribe title="토스코어" name={TARGETS.GONI} refetch={refetch} />
-      <Board
-        letters={letters}
-        imgUrl={IMAGE_URLS.GONI}
-      />
+      <Board letters={letters} imgUrl={IMAGE_URLS.GONI} />
     </>
   );
 };

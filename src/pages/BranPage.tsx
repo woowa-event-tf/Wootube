@@ -5,7 +5,6 @@ import IMAGE_URLS from '../constants/imageUrls';
 import TARGETS from '../constants/targets';
 import useLetters from '../hooks/useLetters';
 
-
 const BranPage = () => {
   const { letters, refetch } = useLetters(TARGETS.BRAN);
 
@@ -21,10 +20,7 @@ const BranPage = () => {
         </p>
       </Cover>
       <Subscribe title="토스뱅크" name={TARGETS.BRAN} refetch={refetch} />
-      <Board
-        letters={letters}
-        imgUrl={IMAGE_URLS.BRAN}
-      />
+      <Board letters={letters} imgUrl={IMAGE_URLS.BRAN} />
     </>
   );
 };

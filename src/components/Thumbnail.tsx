@@ -1,5 +1,5 @@
-import { useEffect, useRef } from "react";
-import styled from "@emotion/styled";
+import { useEffect, useRef } from 'react';
+import styled from '@emotion/styled';
 
 // utils
 
@@ -9,10 +9,10 @@ export const wrapText = (
   x: number,
   y: number,
   maxWidth: number,
-  lineHeight: number
+  lineHeight: number,
 ) => {
-  const words = text.split("");
-  let line = "";
+  const words = text.split('');
+  let line = '';
 
   for (let n = 0; n < words.length; n++) {
     let testLine = line + words[n];
@@ -33,16 +33,16 @@ export const wrapText = (
 export const drawText = (canvas: HTMLCanvasElement | null, text: string, width: number) => {
   if (!canvas) return;
 
-  const ctx = (canvas as HTMLCanvasElement).getContext("2d");
+  const ctx = (canvas as HTMLCanvasElement).getContext('2d');
 
   if (!ctx) return;
 
-  ctx.fillStyle = "white";
-   if (text.length > 21) {
-    ctx.font = "1.1rem Calibri";
+  ctx.fillStyle = 'white';
+  if (text.length > 21) {
+    ctx.font = '1.1rem Calibri';
     wrapText(ctx, text, 10, 45, width * 0.45, 30);
   } else {
-    ctx.font = "1.3rem Calibri";
+    ctx.font = '1.3rem Calibri';
     wrapText(ctx, text, 10, 50, width * 0.45, 30);
   }
 };
@@ -59,13 +59,13 @@ const drawImage = (
   newImage.src = imageURL;
 
   newImage.onload = () => {
-    const ctx = (canvas as HTMLCanvasElement).getContext("2d");
+    const ctx = (canvas as HTMLCanvasElement).getContext('2d');
 
     if (!ctx) return;
 
     canvas.height = canvas.width * (newImage.height / newImage.width);
 
-    ctx.imageSmoothingQuality = "high";
+    ctx.imageSmoothingQuality = 'high';
 
     ctx.drawImage(newImage, 0, 0, canvas.width, canvas.height);
     drawText(canvas, text, width);
@@ -89,12 +89,12 @@ const Thumbnail = ({ backgroundImageUrl, width, height, content }: Props) => {
   }, []);
 
   return (
-      <canvas
-        width={width}
-        height={height}
-        style={{ border: "1px solid #cccccc" }}
-        ref={contentRef}
-      />
+    <canvas
+      width={width}
+      height={height}
+      style={{ border: '1px solid #cccccc' }}
+      ref={contentRef}
+    />
   );
 };
 

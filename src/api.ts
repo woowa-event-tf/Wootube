@@ -1,8 +1,8 @@
-import db from "./firebase";
+import db from './firebase';
 
-import { Target } from "./@types";
+import { Target } from './@types';
 
-const postsCollection = db.collection("posts");
+const postsCollection = db.collection('posts');
 
 interface Post {
   target: Target;
@@ -15,7 +15,7 @@ const api = {
     get: async () => {
       const response = await postsCollection.get();
 
-      return response.docs.map(doc => {
+      return response.docs.map((doc) => {
         const { target, author, content } = doc.data();
 
         return {
@@ -23,7 +23,7 @@ const api = {
           target,
           from: author,
           title: content,
-        }
+        };
       });
     },
     post: async (data: Post) => {

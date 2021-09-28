@@ -1,1 +1,1 @@
-export type Target = "goni" | "bran";
+export type Target = 'goni' | 'bran';

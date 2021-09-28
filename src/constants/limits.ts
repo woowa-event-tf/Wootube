@@ -1,4 +1,4 @@
 export const INPUT_MAX_LENGTH = {
   LETTER_WRITER: 4,
-  LETTER_TITLE: 24
-}
+  LETTER_TITLE: 24,
+};

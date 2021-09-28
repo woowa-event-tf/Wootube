@@ -12,11 +12,11 @@ const Modal = () => {
 
     const target = event.target as typeof event.target & {
       writer: { value: string };
-      content: { value: string };
+      title: { value: string };
     };
 
     const writer = target.writer.value;
-    const content = target.content.value;
+    const title = target.title.value;
   };
 
   const content = (
@@ -32,8 +32,8 @@ const Modal = () => {
             <input id="writer" name="writer" />
           </div>
           <div>
-            <label htmlFor="content">장점 적기</label>
-            <textarea id="content" />
+            <label htmlFor="title">장점 적기</label>
+            <textarea id="title" />
           </div>
           <SubmitContainer>
             <button>확인</button>

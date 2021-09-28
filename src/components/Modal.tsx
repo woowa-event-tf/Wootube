@@ -1,7 +1,6 @@
 import { FormEvent } from 'react';
 import ReactDOM from 'react-dom';
 import styled from '@emotion/styled';
-
 import { useModal } from '../contexts/ModalProvider';
 
 const Modal = () => {
@@ -106,7 +105,6 @@ const Form = styled.form`
 
 const SubmitContainer = styled.div`
   text-align: right;
-  padding: 0 20px;
 
   button {
     background: #080808;

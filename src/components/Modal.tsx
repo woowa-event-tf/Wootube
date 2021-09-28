@@ -7,35 +7,42 @@ import TARGETS from '../constants/targets';
 import { Target } from 'src/@types';
 
 interface Props {
- name: Target | null;
- closeModal: () => void;
+  name: Target | null;
+  closeModal: () => void;
 }
 
-const DEFAULT_NAME = "DEFAULT_NAME";
+const DEFAULT_NAME = 'DEFAULT_NAME';
 const targetName = {
-  [TARGETS.GONI]: "곤이",
-  [TARGETS.BRAN]: "브랜",
-  DEFAULT_NAME: "",
+  [TARGETS.GONI]: '곤이',
+  [TARGETS.BRAN]: '브랜',
+  DEFAULT_NAME: '',
 };
 
 const useInput = (initialValue?: string, maxLength?: number) => {
-  const [value, setValue] = useState(initialValue ?? "");
+  const [value, setValue] = useState(initialValue ?? '');
 
-  const onChange: ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement> = ({ target: { value }}) => {
+  const onChange: ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement> = ({
+    target: { value },
+  }) => {
     if (value.length <= (maxLength ?? Infinity)) {
       setValue(value);
     }
-  }
+  };
 
-  return {value, onChange};
-}
+  return { value, onChange };
+};
 
 const Modal = ({ name, closeModal }: Props) => {
-  const { value: writer, onChange: onWriterChange } = useInput("", INPUT_MAX_LENGTH.LETTER_WRITER);
-  const { value: title, onChange: onTitleChange } = useInput("", INPUT_MAX_LENGTH.LETTER_TITLE);
+  const { value: writer, onChange: onWriterChange } = useInput('', INPUT_MAX_LENGTH.LETTER_WRITER);
+  const { value: title, onChange: onTitleChange } = useInput('', INPUT_MAX_LENGTH.LETTER_TITLE);
 
   const onWriteContent = async (event: FormEvent) => {
     event.preventDefault();
+
+    if (!writer || !title) {
+      alert('닉네임과 장점을 모두 입력해주세요');
+      return;
+    }
 
     if (name) {
       await api.posts.post({ target: name, author: writer, content: title });
@@ -54,20 +61,24 @@ const Modal = ({ name, closeModal }: Props) => {
         <Form onSubmit={onWriteContent}>
           <div>
             <label htmlFor="writer">
-              쓰는 사람
-              <Indicator>{writer.length} / {INPUT_MAX_LENGTH.LETTER_WRITER}</Indicator>
+              닉네임
+              <Indicator>
+                {writer.length} / {INPUT_MAX_LENGTH.LETTER_WRITER}
+              </Indicator>
             </label>
-            <input id="writer" name="writer" value={writer} onChange={onWriterChange} />
+            <input id="writer" name="writer" value={writer} onChange={onWriterChange} required />
           </div>
           <div>
             <label htmlFor="title">
               장점 적기
-              <Indicator>{title.length} / {INPUT_MAX_LENGTH.LETTER_TITLE}</Indicator>
+              <Indicator>
+                {title.length} / {INPUT_MAX_LENGTH.LETTER_TITLE}
+              </Indicator>
             </label>
-            <textarea id="title" value={title} onChange={onTitleChange} />
+            <textarea id="title" value={title} onChange={onTitleChange} required />
           </div>
           <SubmitContainer>
-            <button>확인</button>
+            <button disabled={!writer || !title}>확인</button>
           </SubmitContainer>
         </Form>
       </ModalContainer>
@@ -152,6 +163,11 @@ const SubmitContainer = styled.div`
 
     color: white;
     font-size: 16px;
+
+    :disabled {
+      background-color: #656565;
+      cursor: not-allowed;
+    }
   }
 `;
 

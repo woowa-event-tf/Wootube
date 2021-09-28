@@ -52,13 +52,13 @@ const Nav = () => {
 };
 
 const AsideContainer = styled.nav`
-  width: 18rem;
+  width: 14rem;
   height: 92vh;
   overflow: auto;
 
   ul {
     width: 100%;
-    padding: 0.8rem 4rem;
+    padding: 0.8rem 2rem;
     padding-right: 0;
     border-bottom: 1px solid #c7c7c7;
 

@@ -1,7 +1,6 @@
-import styled from '@emotion/styled';
-import { css } from '@emotion/react';
-
 import { BlogItem } from 'src/pages/HomePage';
+import { css } from '@emotion/react';
+import styled from '@emotion/styled';
 
 const ThumbnailItem = ({ name, imgUrl, blogUrl, nickName, birth }: BlogItem) => {
   return (

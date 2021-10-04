@@ -6,6 +6,7 @@ import { cannerList } from '../data/cannerList';
 import { wootecoList } from '../data/wootecoList';
 
 import NavItem from './NavItem';
+import Footer from './Footer';
 
 export interface Item {
   name: string;
@@ -15,7 +16,7 @@ export interface Item {
 
 const Nav = () => {
   return (
-    <AsideContainer>
+    <NavContainer>
       <ul>
         <span>채널</span>
         {cannerList.map(({ name, url, imageUrl }: Item) => (
@@ -48,18 +49,20 @@ const Nav = () => {
           </li>
         ))}
       </ul>
-    </AsideContainer>
+
+      <Footer />
+    </NavContainer>
   );
 };
 
-const AsideContainer = styled.nav`
-  min-width: 14rem;
+const NavContainer = styled.nav`
+  max-width: 14rem;
   height: 92vh;
   overflow: auto;
 
   ul {
     width: 100%;
-    padding: 0.8rem 2.5rem;
+    padding: 0.8rem 1.5rem;
     padding-right: 0;
     border-bottom: 1px solid #c7c7c7;
 

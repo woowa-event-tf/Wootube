@@ -2,8 +2,8 @@ import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
 
 import { projects } from '../data/projectList';
-import { subscribeList } from '../data/subscribeList';
-import { gitHubList } from '../data/githubList';
+import { cannerList } from '../data/cannerList';
+import { wootecoList } from '../data/wootecoList';
 
 import NavItem from './NavItem';
 
@@ -17,22 +17,23 @@ const Nav = () => {
   return (
     <AsideContainer>
       <ul>
-        {gitHubList.map(({ name, url, imageUrl }: Item) => (
+        <span>채널</span>
+        {cannerList.map(({ name, url, imageUrl }: Item) => (
           <li key={name}>
-            <a href={url} target="_blank" rel="noopener noreferrer">
+            <Link to={url}>
               <NavItem name={name} url={url} imageUrl={imageUrl} />
-            </a>
+            </Link>
           </li>
         ))}
       </ul>
 
       <ul>
-        <span>구독</span>
-        {subscribeList.map(({ name, url, imageUrl }: Item) => (
+        <span>우테코</span>
+        {wootecoList.map(({ name, url, imageUrl }: Item) => (
           <li key={name}>
-            <Link to={url}>
+            <a href={url} target="_blank" rel="noopener noreferrer">
               <NavItem name={name} url={url} imageUrl={imageUrl} />
-            </Link>
+            </a>
           </li>
         ))}
       </ul>
@@ -52,13 +53,13 @@ const Nav = () => {
 };
 
 const AsideContainer = styled.nav`
-  min-width: 12rem;
+  min-width: 14rem;
   height: 92vh;
   overflow: auto;
 
   ul {
     width: 100%;
-    padding: 0.8rem 2rem;
+    padding: 0.8rem 2.5rem;
     padding-right: 0;
     border-bottom: 1px solid #c7c7c7;
 

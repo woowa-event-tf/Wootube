@@ -1,4 +1,10 @@
-export const subscribeList = [
+export const cannerList = [
+  {
+    name: '홈',
+    url: '/',
+    imageUrl:
+      'https://user-images.githubusercontent.com/59258239/135841537-0761ca49-6e6e-42d0-8cc2-ee880edfe782.png',
+  },
   {
     name: '토스코어',
     url: '/c/goni',

@@ -9,53 +9,47 @@ import Nav from './components/Nav';
 import styled from '@emotion/styled';
 
 const App = () => {
-  const [isBrowserSmall, setIsBrowserSmall] = useState(window.innerWidth < 1099);
+  return (
+    <>
+      <AnnounceContainer>반응형 제작중 🛠 큰 화면에서 봐주세요 🙇‍♀️</AnnounceContainer>
 
-  useEffect(() => {
-    const resizingEvent = () => {
-      if (window.innerWidth < 1099) {
-        setIsBrowserSmall(true);
-      } else {
-        setIsBrowserSmall(false);
-      }
-    };
-
-    window.addEventListener('resize', resizingEvent);
-
-    return () => {
-      window.removeEventListener('resize', resizingEvent);
-    };
-  }, [isBrowserSmall]);
-
-  return isBrowserSmall ? (
-    <AnnounceContainer>반응형 제작중 🛠 큰 화면에서 봐주세요 🙇‍♀️</AnnounceContainer>
-  ) : (
-    <div>
-      <HashRouter>
-        <Header></Header>
-        <Wrapper>
-          <Nav></Nav>
-          <Main>
-            <Switch>
-              <Route exact path="/" component={HomePage} />
-              <Route exact path="/c/goni" component={GoniPage} />
-              <Route exact path="/c/bran" component={BranPage} />
-              <Redirect to="/" />
-            </Switch>
-          </Main>
-        </Wrapper>
-      </HashRouter>
-    </div>
+      <Container>
+        <HashRouter>
+          <Header />
+          <Wrapper>
+            <Nav />
+            <Main>
+              <Switch>
+                <Route exact path="/" component={HomePage} />
+                <Route exact path="/c/goni" component={GoniPage} />
+                <Route exact path="/c/bran" component={BranPage} />
+                <Redirect to="/" />
+              </Switch>
+            </Main>
+          </Wrapper>
+        </HashRouter>
+      </Container>
+    </>
   );
 };
 
 const AnnounceContainer = styled.div`
-  width: 100%;
-  height: 100%;
+  display: none;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @media screen and (max-width: 1100px) {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+`;
+
+const Container = styled.div`
+  @media screen and (max-width: 1100px) {
+    display: none;
+  }
 `;
 
 const Wrapper = styled.div`

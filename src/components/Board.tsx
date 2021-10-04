@@ -62,16 +62,16 @@ const ContentHeader = styled.div`
 const BoardList = styled.ul`
   padding: 2rem 0.5rem 4rem;
 
-  display: grid;
-  grid-row-gap: 1.5rem;
-  justify-items: start;
-
-  @media screen and (min-width: 1100px) and (max-width: 1200px) {
+  @media screen and (min-width: 1100px) and (max-width: 1300px) {
+    display: grid;
     grid-template-columns: repeat(3, 1fr);
+    grid-row-gap: 2rem;
   }
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1300px) {
+    display: grid;
     grid-template-columns: repeat(4, 1fr);
+    grid-row-gap: 2rem;
   }
 `;
 

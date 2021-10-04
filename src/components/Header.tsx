@@ -13,14 +13,12 @@ const Header = () => {
           />
           <h1>WooTube</h1>
         </Link>
-        <a href="https://techcourse.woowahan.com/" target="_blank" rel="noopener noreferrer">
-          <img
-            src="https://user-images.githubusercontent.com/59258239/134790952-5e0d4cfc-593f-420f-bc6b-1ae113165420.png"
-            alt="우테코 로고입니다."
-            width="190px"
-            height="65px"
-          />
-        </a>
+        <img
+          src="https://user-images.githubusercontent.com/59258239/134790952-5e0d4cfc-593f-420f-bc6b-1ae113165420.png"
+          alt="우테코 로고입니다."
+          width="190px"
+          height="65px"
+        />
       </header>
     </HeaderWrapper>
   );

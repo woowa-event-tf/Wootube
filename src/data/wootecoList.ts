@@ -6,7 +6,7 @@ export const wootecoList = [
   },
   {
     name: 'LMS',
-    url: 'https://github.com/yungo1846',
+    url: 'https://techcourse.woowahan.com/',
     imageUrl: 'https://avatars.githubusercontent.com/u/45747236?s=200&v=4',
   },
   {

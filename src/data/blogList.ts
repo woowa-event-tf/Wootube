@@ -29,7 +29,7 @@ export const blogList = [
   },
   {
     nickName: '이수연',
-    blogUrl: '',
+    blogUrl: 'https://prolog.techcourse.co.kr/2SOOY',
     imgUrl: 'https://avatars.githubusercontent.com/u/46412689?v=4',
     name: '콜린',
     birth: '05:17',
@@ -85,7 +85,7 @@ export const blogList = [
   },
   {
     nickName: '임선빈',
-    blogUrl: '',
+    blogUrl: 'https://prolog.techcourse.co.kr/0imbean0',
     imgUrl: 'https://avatars.githubusercontent.com/u/75007375?v=4',
     name: '심바',
     birth: '10:17',
@@ -113,7 +113,7 @@ export const blogList = [
   },
   {
     nickName: '신세희',
-    blogUrl: '',
+    blogUrl: 'https://prolog.techcourse.co.kr/shinsehantan',
     imgUrl: 'https://avatars.githubusercontent.com/u/67591151?v=4',
     name: '신세한탄',
     birth: '11:14',

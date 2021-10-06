@@ -27,7 +27,7 @@ export const projects = [
   },
   {
     name: '보고또보고',
-    url: 'https://botobo.kr/6',
+    url: 'https://botobo.kr/',
     imageUrl:
       'https://user-images.githubusercontent.com/59258239/134797166-6a9a8967-5fa3-42d4-81ea-35d8db4bf8ae.png',
   },
@@ -50,7 +50,7 @@ export const projects = [
       'https://user-images.githubusercontent.com/59258239/134796281-3db577de-4451-4ae8-b3d6-ab69c7d68460.png',
   },
   {
-    name: '찜콩',
+    name: '찜꽁',
     url: 'https://zzimkkong.com/',
     imageUrl: 'https://zzimkkong.com/assets/favicon.ico',
   },

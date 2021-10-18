@@ -18,7 +18,7 @@ export const projects = [
   {
     name: '깃들다',
     url: 'https://pick-git.com/',
-    imageUrl: 'https://djgd6o993rakk.cloudfront.net/images/a68e7df2969f330998457620a1d1ab6b.jpg',
+    imageUrl: 'https://user-images.githubusercontent.com/57767891/137787342-ab03fc3e-3010-40ba-8be7-743590edafbe.jpg',
   },
   {
     name: 'babble',
